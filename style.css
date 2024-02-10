@@ -13,126 +13,54 @@ body {
 
 /* Header */
 
-.header {
-  background-color: #58178D;
+header {
+  background-color: #fff;
   padding: 20px 0;
 }
 
-.header .container {
+header .container {
   max-width: 1200px;
   margin: 0 auto;
+  display: flex; /* Switch to flexbox for responsive layout */
+  justify-content: space-between; /* Align logo and nav */
 }
 
-.header .logo {
+/* Logo */
+
+.logo {
   width: 150px;
   height: auto;
 }
 
-.header .nav {
-  float: right;
+/* Navigation */
+
+nav {
+  /* Remove float on smaller screens */
 }
 
-.header .nav a {
-  color: #fff;
-  text-decoration: none;
-  padding: 10px 15px;
-  font-size: 16px;
+nav ul {
+  list-style: none;
+  padding: 0;
 }
 
-.header .nav a:hover {
-  background-color: #F0AF55;
-}
-
-/* Products */
-
-.products {
-  background-color: #fff;
-  padding: 50px 0;
-}
-
-.products .container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.products .title {
-  font-size: 24px;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-.products .slider {
-  overflow: hidden;
-  white-space: nowrap;
-}
-
-.products .slider li {
-  display: inline-block;
-  width: 250px;
+nav ul li {
+  display: inline-block; /* Change to block on smaller screens */
   margin: 0 10px;
 }
 
-.products .slider li a {
-  text-decoration: none;
+nav ul li a {
   color: #333;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 10px 15px;
 }
 
-.products .slider li img {
-  width: 100%;
-  height: auto;
+nav ul li a:hover {
+  background-color: #F0AF55;
 }
 
-.products .slider li h3 {
-  text-align: center;
-  margin-top: 10px;
-}
+/* Title */
 
-/* Categories */
-
-.categories {
-  background-color: #fff; /* Change background color if desired */
-  padding: 50px 0;
-}
-
-.categories .container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.categories .title {
-  font-size: 24px;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-.categories .cards-container {
-  overflow: hidden;
-  white-space: nowrap;
-  animation: slide 10s linear infinite;
-}
-
-@keyframes slide {
-  from {
-    margin-left: 0;
-  }
-  to {
-    margin-left: -100%;
-  }
-}
-
-.card {
-  display: inline-block;
-  width: 200px;
-  padding: 20px;
-  margin: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  text-align: center;
-  background-color: #58178D; /* Purple color */
-  color: #fff; /* White text color */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease-in-out;
-}
 .title {
   color: linear-gradient(to right, #f0af55, #f59b3c, #f98723);
   text-decoration: none;
@@ -140,44 +68,28 @@ body {
   font-size: 36px;
 }
 
-
-.card a {
-  text-decoration: none;
-  color: inherit; /* Inherit white text color */
-}
-
-.card:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-  background-color:#F0AF55;
-}
-
-/* Footer */
-
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  background-color: #58178D;
-  padding: 20px 0;
-}
-
-.footer .container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.footer .copyright {
-  text-align: center;
-  color: #fff;
-}
+/* Media Queries */
 
 @media screen and (max-width: 768px) {
-  .header .nav {
-    float: none;
+  header .container {
+    flex-direction: column; /* Stack logo and nav on small screens */
+    align-items: center; /* Center elements vertically */
   }
 
-  .products .slider li {
-    width: 100%;
+  header .title {
+    font-size: 24px;
+  }
+
+  nav {
+    text-align: center;
+  }
+
+  nav ul {
+    display: block;
+  }
+
+  nav ul li {
+    display: block;
+    margin: 10px auto;
   }
 }
