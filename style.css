@@ -7,6 +7,7 @@
 }
 
 body {
+  background-color: linear-gradient(to right, #f0af55, #f59b3c, #f98723);
   font-family: sans-serif;
   color: #333;
 }
