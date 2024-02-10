@@ -137,7 +137,9 @@ body {
   color: linear-gradient(to right, #f0af55, #f59b3c, #f98723);
   text-decoration: none;
   text-align: center;
+  font-size: 36px;
 }
+
 
 .card a {
   text-decoration: none;
