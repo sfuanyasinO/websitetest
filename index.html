@@ -4,7 +4,77 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Product Slideshow</title>
-  <link rel="stylesheet" href="styles.css">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background-color: #F0AF55;
+      font-family: Arial, sans-serif;
+    }
+
+    .product-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 20px;
+      padding: 20px;
+    }
+
+    .product-card {
+      position: relative;
+      width: 300px;
+      height: 400px;
+      overflow: hidden;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .product-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.5);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .product-card:hover::before {
+      opacity: 1;
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: blur(8px);
+      transition: filter 0.3s ease;
+    }
+
+    .product-card:hover img {
+      filter: blur(0);
+    }
+
+    .product-card-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: #FFF;
+      z-index: 1;
+    }
+
+    .product-card-content h2 {
+      font-size: 1.5rem;
+      margin: 0;
+    }
+  </style>
 </head>
 <body>
   <div class="product-cards">
@@ -28,6 +98,26 @@
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <script>
+    const productCards = document.querySelectorAll('.product-card');
+
+    productCards.forEach(card => {
+      card.addEventListener('mouseover', () => {
+        productCards.forEach(otherCard => {
+          if (otherCard !== card) {
+            otherCard.style.filter = 'blur(8px)';
+          }
+        });
+      });
+
+      card.addEventListener('mouseout', () => {
+        productCards.forEach(otherCard => {
+          if (otherCard !== card) {
+            otherCard.style.filter = 'none';
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>
