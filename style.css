@@ -1,31 +1,82 @@
-* {
-  box-sizing: border-box;
-}
-
+/* General */
 body {
-  margin: 0;
-  background-color: #F0AF55;
   font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Make the main flex item fill the screen regardless of content */
 }
 
-.product-cards {
+/* Header */
+.header {
+  background-color: #58178D;
+  padding: 20px 0;
+}
+
+.header .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+.header .logo {
+  width: 70px;
+  height: auto;
+}
+
+.header .nav {
+  margin-left: auto;
+}
+
+.header .nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 15px;
+  font-size: 16px;
+}
+
+.header .nav a:hover {
+  background-color: #F0AF55;
+}
+
+/* Categories */
+.categories {
+  background-color: #fff;
+  padding: 50px 0;
+}
+
+.categories .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.categories .title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.categories .cards-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 20px;
+  grid-template-columns: repeat(3, minmax(250px, 1fr)); /* Three cards per row */
+  grid-gap: 20px; /* Spacing between cards */
   padding: 20px;
 }
 
-.product-card {
+.categories .product-card {
+  max-width: 250px; /* Set card width */
   position: relative;
-  width: 300px;
-  height: 400px;
+  width: 250px;
+  height: 250px;
   overflow: hidden;
   border-radius: 15px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease;
 }
 
-.product-card::before {
+.categories .product-card::before {
   content: "";
   position: absolute;
   top: 0;
@@ -37,11 +88,11 @@ body {
   transition: opacity 0.3s ease;
 }
 
-.product-card:hover::before {
+.categories .product-card:hover::before {
   opacity: 1;
 }
 
-.product-card img {
+.categories .product-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -49,11 +100,11 @@ body {
   transition: filter 0.3s ease;
 }
 
-.product-card:hover img {
+.categories .product-card:hover img {
   filter: blur(0);
 }
 
-.product-card-content {
+.categories .product-card-content {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -63,8 +114,27 @@ body {
   z-index: 1;
 }
 
-.product-card-content h2 {
+.categories .product-card-content h2 {
   font-size: 1.5rem;
   margin: 0;
 }
 
+/* Footer */
+.footer {
+  margin-top: auto; /* Stick the footer to the bottom of the main flex item */
+  width: 100%;
+  background-color: #58178D;
+  padding: 20px 0;
+  color: #fff;
+  text-align: center;
+}
+
+.footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer .copyright {
+  text-align: center;
+  color: #fff;
+}
